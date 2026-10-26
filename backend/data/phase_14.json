@@ -1,0 +1,21 @@
+{
+  "number": 14,
+  "name": "Agent Engineering",
+  "lessons": [
+    {
+      "id": "15-crewai-role-based-crews",
+      "phase": 14,
+      "title": "CrewAI: Role-Based Crews",
+      "hook": "Mocked similarity uses numpy for vector operations.",
+      "body": "Stdlib-only implementation using pure Python for cosine similarity; no numpy dependency.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "uses numpy",
+          "corrected": "uses stdlib-only pure Python",
+          "note": "Lesson contract is stdlib-only; body confirms no numpy"
+        }
+      ]
+    }
+  ]
+}

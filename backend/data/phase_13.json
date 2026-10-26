@@ -1,0 +1,51 @@
+{
+  "number": 13,
+  "name": "Tools and Protocols",
+  "lessons": [
+    {
+      "id": "01-the-tool-interface",
+      "phase": 13,
+      "title": "The Tool Interface",
+      "hook": "The tool registry holds three fields per tool.",
+      "body": "The tool registry holds four fields per tool: (1) name, (2) description, (3) schema, (4) executor reference.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "three fields",
+          "corrected": "four fields",
+          "note": "Body lists four fields"
+        }
+      ]
+    },
+    {
+      "id": "03-parallel-and-streaming-tool-calls",
+      "phase": 13,
+      "title": "Parallel and Streaming Tool Calls",
+      "hook": "Out-of-order submission makes debugging harder; completion-order recommended.",
+      "body": "Out-of-order submission makes debugging harder, but completion-order processing is recommended for UX.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "out-of-order submission makes debugging harder",
+          "corrected": "out-of-order submission complicates debugging; completion-order recommended for UX",
+          "note": "Tension between debugging difficulty and UX recommendation"
+        }
+      ]
+    },
+    {
+      "id": "14-mcp-apps",
+      "phase": 13,
+      "title": "MCP Apps",
+      "hook": "Four things to know about MCP apps.",
+      "body": "Five items: (1) resources, (2) tools, (3) prompts, (4) sampling, (5) roots.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "four things",
+          "corrected": "five things",
+          "note": "Body lists five items"
+        }
+      ]
+    }
+  ]
+}
