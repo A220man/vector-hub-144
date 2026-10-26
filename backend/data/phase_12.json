@@ -1,0 +1,273 @@
+{
+  "number": 12,
+  "name": "Multimodal AI",
+  "lessons": [
+    {
+      "id": "03-blip2-qformer-bridge",
+      "phase": 12,
+      "title": "BLIP-2: Q-Former Bridge",
+      "hook": "BLIP-2 bridges vision and language with an 11B LLM.",
+      "body": "BLIP-2 uses a frozen OPT-6.7B LLM with a trainable Q-Former. The Q-Former extracts visual features and projects them into the LLM's embedding space.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "11B LLM",
+          "corrected": "OPT-6.7B LLM",
+          "note": "Body specifies OPT-6.7B, not 11B"
+        }
+      ]
+    },
+    {
+      "id": "04-flamingo-gated-cross-attention",
+      "phase": 12,
+      "title": "Flamingo: Gated Cross-Attention",
+      "hook": "Flamingo trains on 1.3B image-text pairs with gated cross-attention.",
+      "body": "Flamingo uses ALIGN (1.8B pairs) and LTIP (2.6B pairs) datasets, totaling 4.4B pairs. Gated cross-attention layers are inserted between frozen LM blocks.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "1.3B pairs",
+          "corrected": "4.4B pairs (ALIGN + LTIP)",
+          "note": "Body states ALIGN + LTIP had 4.4B pairs total"
+        }
+      ]
+    },
+    {
+      "id": "05-llava-visual-instruction-tuning",
+      "phase": 12,
+      "title": "LLaVA: Visual Instruction Tuning",
+      "hook": "LLaVA-1.5 introduces AnyRes for variable resolution and scales context 2048→32k.",
+      "body": "LLaVA-1.5 uses a ~22M parameter projector. AnyRes is introduced in LLaVA-NeXT, not LLaVA-1.5. LLaVA-1.5 context is 2048; 32k context comes in LLaVA-NeXT.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "AnyRes",
+          "corrected": "LLaVA-NeXT introduces AnyRes",
+          "note": "AnyRes attributed to LLaVA-NeXT in body"
+        },
+        {
+          "field": "hook",
+          "original": "40M trainable projector params",
+          "corrected": "~22M trainable projector params",
+          "note": "Body says ~22M"
+        },
+        {
+          "field": "hook",
+          "original": "2048 → 32k context",
+          "corrected": "2048 context (32k in LLaVA-NeXT)",
+          "note": "32k context is LLaVA-NeXT, not LLaVA-1.5"
+        }
+      ]
+    },
+    {
+      "id": "06-any-resolution-patch-n-pack",
+      "phase": 12,
+      "title": "Any Resolution: Patch-n-Pack",
+      "hook": "Aspect ratio 9:16 with ~9,800 tokens filling most of 8k context.",
+      "body": "The problem section cites 1:3 aspect ratio. ~9,800 tokens exceeds an 8k context window.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "9:16",
+          "corrected": "1:3",
+          "note": "The Problem section states 1:3"
+        },
+        {
+          "field": "hook",
+          "original": "fills most of an 8k context",
+          "corrected": "exceeds 8k context",
+          "note": "9,800 > 8,192 tokens"
+        }
+      ]
+    },
+    {
+      "id": "08-llava-onevision-single-multi-video",
+      "phase": 12,
+      "title": "LLaVA-OneVision: Single/Multi/Video",
+      "hook": "Bilinear pooling of 24×24 patches to 12×12 is a 4x reduction per dimension.",
+      "body": "Halving each side (24→12) is a 2x reduction per dimension, yielding 4x fewer tokens total.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "4x reduction per dimension",
+          "corrected": "2x reduction per dimension (4x fewer tokens)",
+          "note": "Halving each dimension = 2x reduction per dimension"
+        }
+      ]
+    },
+    {
+      "id": "12-emu3-next-token-for-generation",
+      "phase": 12,
+      "title": "Emu3: Next-Token for Generation",
+      "hook": "Llama-2-7B trained in 2k-4k GPU-years on A100; smaller codebook lookups with 32,768 entries.",
+      "body": "Llama 2 paper reports ~184k A100 GPU-hours for 7B (~21 GPU-years). 32,768-entry codebook is large, not small.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "2k-4k GPU-years",
+          "corrected": "~21 GPU-years (184k A100-hours)",
+          "note": "Llama 2 paper: 184k A100 GPU-hours for 7B"
+        },
+        {
+          "field": "hook",
+          "original": "smaller codebook lookups",
+          "corrected": "large 32,768-entry codebook",
+          "note": "32K entries is a large codebook"
+        }
+      ]
+    },
+    {
+      "id": "13-transfusion-autoregressive-diffusion",
+      "phase": 12,
+      "title": "Transfusion: Autoregressive Diffusion",
+      "hook": "Unified generation in one forward pass with 10-30 diffusion steps; Claude Opus 4.7 generates images.",
+      "body": "The 10-30 step diffusion loop contradicts single forward pass. Claude Opus 4.7 image generation claim unverified.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "in one forward pass",
+          "corrected": "via 10-30 step diffusion loop",
+          "note": "Diffusion requires iterative steps"
+        },
+        {
+          "field": "hook",
+          "original": "Claude Opus 4.7 image-generation",
+          "corrected": "Claude Opus 4.7 image-generation (unverified)",
+          "note": "Claim unverified"
+        }
+      ]
+    },
+    {
+      "id": "14-show-o-discrete-diffusion-unified",
+      "phase": 12,
+      "title": "Show-o: Discrete Diffusion Unified",
+      "hook": "Three tasks unified in one model.",
+      "body": "Four tasks: (1) text-to-image, (2) image-to-text, (3) text-to-text, (4) image-to-image.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "three tasks",
+          "corrected": "four tasks",
+          "note": "Body lists four tasks"
+        }
+      ]
+    },
+    {
+      "id": "16-mio-any-to-any-streaming",
+      "phase": 12,
+      "title": "MIO: Any-to-Any Streaming",
+      "hook": "Forty-thousand-plus entries minimum vocabulary.",
+      "body": "Stated ranges elsewhere sum to ~60k entries.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "Forty-thousand-plus entries minimum",
+          "corrected": "~60k entries (sum of ranges)",
+          "note": "Source ranges sum to ~60k"
+        }
+      ]
+    },
+    {
+      "id": "17-video-language-temporal-grounding",
+      "phase": 12,
+      "title": "Video-Language Temporal Grounding",
+      "hook": "172,800 tokens fit in 128k context.",
+      "body": "172,800 tokens exceeds 128k (131,072) context window.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "172,800 tokens fit in 128k context",
+          "corrected": "172,800 tokens exceeds 128k context",
+          "note": "172,800 > 131,072"
+        }
+      ]
+    },
+    {
+      "id": "18-long-video-million-token",
+      "phase": 12,
+      "title": "Long Video: Million Token Context",
+      "hook": "Three scaling paths with linear compute/memory via ring attention.",
+      "body": "Four scaling sections below. Ring attention makes communication linear; total attention compute stays quadratic.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "Three scaling paths",
+          "corrected": "Four scaling paths",
+          "note": "Four sections in body"
+        },
+        {
+          "field": "hook",
+          "original": "compute/memory scale linearly",
+          "corrected": "communication linear; compute quadratic",
+          "note": "Ring attention: communication linear, compute stays quadratic"
+        }
+      ]
+    },
+    {
+      "id": "19-audio-language-whisper-to-af3",
+      "phase": 12,
+      "title": "Audio-Language: Whisper to AF3",
+      "hook": "8B LLM backbone with Qwen2 7B.",
+      "body": "Uses Qwen2 7B as the LLM backbone, not 8B.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "8B LLM backbone",
+          "corrected": "Qwen2 7B LLM backbone",
+          "note": "Body specifies Qwen2 7B"
+        }
+      ]
+    },
+    {
+      "id": "20-omni-models-thinker-talker",
+      "phase": 12,
+      "title": "Omni Models: Thinker-Talker",
+      "hook": "Three patterns; TTFAB 7B component maxima sum to 510ms.",
+      "body": "Two patterns described. TTFAB 7B maxima sum to ~490ms.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "three patterns",
+          "corrected": "two patterns",
+          "note": "Body describes two patterns"
+        },
+        {
+          "field": "hook",
+          "original": "510 ms",
+          "corrected": "~490 ms",
+          "note": "Component maxima sum to ~490ms"
+        }
+      ]
+    },
+    {
+      "id": "23-colpali-vision-native-rag",
+      "phase": 12,
+      "title": "ColPali: Vision-Native RAG",
+      "hook": "~4 MB after PQ with 8x compression.",
+      "body": "Exercise 1 cites 8x compression factor; ~4 MB after PQ conflicts with this.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "~4 MB after PQ",
+          "corrected": "~4 MB after PQ (conflicts with 8x claim)",
+          "note": "Conflicts with Exercise 1's 8x compression"
+        }
+      ]
+    },
+    {
+      "id": "25-multimodal-agents-computer-use",
+      "phase": 12,
+      "title": "Multimodal Agents: Computer Use",
+      "hook": "Agents execute 10 atomic actions for computer control.",
+      "body": "Nine actions: (1) click, (2) double-click, (3) right-click, (4) type, (5) scroll, (6) drag, (7) keypress, (8) wait, (9) screenshot.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "10 actions",
+          "corrected": "9 actions",
+          "note": "Body lists nine actions, not ten"
+        }
+      ]
+    }
+  ]
+}

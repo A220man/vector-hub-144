@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "current_feature": "docs-platform-skeleton",
+  "features": [
+    {
+      "id": "docs-platform-skeleton",
+      "title": "Documentation Platform Skeleton",
+      "status": "in_progress",
+      "acceptance": [
+        "FastAPI server runs and serves lesson content",
+        "React frontend loads and displays lesson list",
+        "Lesson content rendered with corrections applied"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "lesson-corrections-engine",
+      "title": "Lesson Corrections Engine",
+      "status": "planned",
+      "acceptance": [
+        "Corrections loaded from structured data",
+        "Applied to lesson content at render time",
+        "Original and corrected versions traceable"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "phase-navigation",
+      "title": "Phase Navigation UI",
+      "status": "planned",
+      "acceptance": [
+        "Sidebar shows all 20 phases (00-19)",
+        "Clicking phase shows lessons",
+        "URL routing works for deep links"
+      ],
+      "implementation": [],
+      "tests": []
+    }
+  ]
+}

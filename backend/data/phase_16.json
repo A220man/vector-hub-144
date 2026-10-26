@@ -1,0 +1,21 @@
+{
+  "number": 16,
+  "name": "Multi-Agent and Swarms",
+  "lessons": [
+    {
+      "id": "23-failure-modes-mast-groupthink",
+      "phase": 16,
+      "title": "Failure Modes: MAST and Groupthink",
+      "hook": "Annual (or per-major-release) failure-mode audit.",
+      "body": "Ship It recommends per quarter. Not annual. Direct contradiction with Concept section.",
+      "corrections": [
+        {
+          "field": "hook",
+          "original": "annual (or per-major-release)",
+          "corrected": "per quarter (per Ship It)",
+          "note": "Ship It section says per quarter, not annual"
+        }
+      ]
+    }
+  ]
+}
