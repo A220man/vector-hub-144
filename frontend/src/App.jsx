@@ -63,14 +63,46 @@ function CorrectionsView({ corrections }) {
 
 function LessonView({ lesson }) {
   if (!lesson) return <div className="empty">Select a lesson</div>
+  const [showCorrected, setShowCorrected] = useState(false)
+
+  // Apply corrections to text
+  const applyCorrections = (text, field) => {
+    if (!text) return text
+    const lessonCorrections = lesson.corrections?.filter(c => c.field === field) || []
+    let result = text
+    for (const c of lessonCorrections) {
+      if (showCorrected) {
+        result = result.replace(c.original, `<span class="corrected-text">${c.corrected}</span>`)
+      } else {
+        result = result.replace(c.original, `<span class="original-text"><del>${c.original}</del> <span class="corrected-inline">${c.corrected}</span></span>`)
+      }
+    }
+    return result
+  }
+
+  const hookHtml = lesson.hook ? applyCorrections(lesson.hook, 'hook') : ''
+  const bodyHtml = lesson.body
+    ? applyCorrections(lesson.body, 'body').replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>')
+    : ''
+
   return (
     <article className="lesson-view">
       <header>
         <h2>{lesson.title}</h2>
         <span className="phase-badge">Phase {lesson.phase}</span>
       </header>
-      {lesson.hook && <div className="hook">{lesson.hook}</div>}
-      {lesson.body && <div className="body" dangerouslySetInnerHTML={{ __html: lesson.body.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>') }} />}
+      {lesson.corrections && lesson.corrections.length > 0 && (
+        <label className="correction-toggle">
+          <input
+            type="checkbox"
+            checked={showCorrected}
+            onChange={e => setShowCorrected(e.target.checked)}
+          />
+          {showCorrected ? 'Show Original with Corrections' : 'Show Corrected Version'}
+        </label>
+      )}
+      {hookHtml && <div className="hook" dangerouslySetInnerHTML={{ __html: hookHtml }} />}
+      {bodyHtml && <div className="body" dangerouslySetInnerHTML={{ __html: bodyHtml }} />}
       <CorrectionsView corrections={lesson.corrections} />
     </article>
   )
