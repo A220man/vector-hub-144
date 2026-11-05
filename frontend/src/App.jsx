@@ -71,10 +71,12 @@ function LessonView({ lesson }) {
     const lessonCorrections = lesson.corrections?.filter(c => c.field === field) || []
     let result = text
     for (const c of lessonCorrections) {
+      const escapedOriginal = c.original.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      const regex = new RegExp(escapedOriginal, 'g')
       if (showCorrected) {
-        result = result.replace(c.original, `<span class="corrected-text">${c.corrected}</span>`)
+        result = result.replace(regex, `<span class="corrected-text">${c.corrected}</span>`)
       } else {
-        result = result.replace(c.original, `<span class="original-text"><del>${c.original}</del> <span class="corrected-inline">${c.corrected}</span></span>`)
+        result = result.replace(regex, `<span class="original-text"><del>${c.original}</del> <span class="corrected-inline">${c.corrected}</span></span>`)
       }
     }
     return result

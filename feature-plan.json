@@ -1,52 +1,16 @@
 {
   "schema_version": 1,
-  "current_feature": "docs-platform-skeleton",
+  "current_feature": "continue-implementation",
   "features": [
     {
-      "id": "docs-platform-skeleton",
-      "title": "Documentation Platform Skeleton",
-      "status": "done",
-      "acceptance": [
-        "FastAPI server runs and serves lesson content",
-        "React frontend loads and displays lesson list",
-        "Lesson content rendered with corrections applied"
-      ],
-      "implementation": [
-        "backend/main.py",
-        "frontend/src/App.jsx",
-        "frontend/src/App.css"
-      ],
-      "tests": []
-    },
-    {
-      "id": "lesson-corrections-engine",
-      "title": "Lesson Corrections Engine",
+      "id": "continue-implementation",
+      "title": "Continue implementation and resolve known failures",
       "status": "in_progress",
       "acceptance": [
-        "Corrections loaded from structured data",
-        "Applied to lesson content at render time",
-        "Original and corrected versions traceable"
+        "Run checks, fix failures, and implement the next planned feature"
       ],
-      "implementation": [
-        "backend/main.py",
-        "frontend/src/App.jsx"
-      ],
-      "tests": []
-    },
-    {
-      "id": "phase-navigation",
-      "title": "Phase Navigation UI",
-      "status": "planned",
-      "acceptance": [
-        "Sidebar shows all 20 phases (00-19)",
-        "Clicking phase shows lessons",
-        "URL routing works for deep links"
-      ],
-      "implementation": [
-        "frontend/src/App.jsx"
-      ],
+      "implementation": [],
       "tests": []
     }
   ]
 }
-
