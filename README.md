@@ -1,4 +1,4 @@
-# vector-hub-144
+# vector-hub-144 — Ryan Vo
 
 AI Engineering documentation platform with lesson corrections from upstream issue #585.
 

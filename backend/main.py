@@ -80,20 +80,12 @@ def get_lesson(lesson_id: str):
     for phase in PHASES:
         for lesson in phase.lessons:
             if lesson.id == lesson_id:
-                # Apply corrections to body
-                corrected_body = lesson.body or ""
-                for correction in lesson.corrections:
-                    if correction.field == "body":
-                        corrected_body = corrected_body.replace(correction.original, correction.corrected)
-                    elif correction.field == "hook":
-                        # Hook corrections handled separately
-                        pass
                 return {
                     "id": lesson.id,
                     "phase": lesson.phase,
                     "title": lesson.title,
                     "hook": lesson.hook,
-                    "body": corrected_body,
+                    "body": lesson.body,
                     "corrections": [c.model_dump() for c in lesson.corrections]
                 }
     return {"error": "Lesson not found"}, 404
