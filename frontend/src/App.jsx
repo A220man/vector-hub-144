@@ -25,18 +25,40 @@ function PhaseList({ phases, selectedPhase, onSelectPhase }) {
   )
 }
 
-function LessonList({ phase, onSelectLesson }) {
+function LessonList({ phase, onSelectLesson, selectedLesson }) {
+  const [filter, setFilter] = useState('')
+  const filteredLessons = phase.lessons?.filter(lesson =>
+    lesson.title.toLowerCase().includes(filter.toLowerCase()) ||
+    lesson.id.toLowerCase().includes(filter.toLowerCase())
+  ) || []
+
   return (
     <section className="lesson-list">
-      <h2>Phase {phase.number}: {phase.name}</h2>
+      <header>
+        <h2>{phase.name}</h2>
+        <input
+          type="text"
+          placeholder="Filter lessons..."
+          value={filter}
+          onChange={e => setFilter(e.target.value)}
+          className="lesson-filter"
+        />
+      </header>
       <ul>
-        {phase.lessons.map(l => (
-          <li key={l.id}>
-            <button onClick={() => onSelectLesson(l.id)}>
-              {l.title}
+        {filteredLessons.map(lesson => (
+          <li key={lesson.id}>
+            <button
+              onClick={() => onSelectLesson(lesson.id)}
+              className={selectedLesson === lesson.id ? 'active' : ''}
+            >
+              <span className="lesson-id">{lesson.id}</span>
+              <span className="lesson-title">{lesson.title}</span>
             </button>
           </li>
         ))}
+        {filteredLessons.length === 0 && phase.lessons.length > 0 && (
+          <li className="no-results">No lessons match "{filter}"</li>
+        )}
       </ul>
     </section>
   )
@@ -62,8 +84,8 @@ function CorrectionsView({ corrections }) {
 }
 
 function LessonView({ lesson }) {
-  if (!lesson) return <div className="empty">Select a lesson</div>
   const [showCorrected, setShowCorrected] = useState(false)
+  if (!lesson) return <div className="empty">Select a lesson</div>
 
   // Apply corrections to text
   const applyCorrections = (text, field) => {
@@ -143,7 +165,7 @@ function App() {
       <div className="content">
         <main>
           {selectedPhase !== null && phaseData && (
-            <LessonList phase={phaseData} onSelectLesson={handleSelectLesson} />
+            <LessonList phase={phaseData} onSelectLesson={handleSelectLesson} selectedLesson={selectedLesson} />
           )}
           {selectedPhase !== null && (
             <>

@@ -80,15 +80,37 @@ main {
   color: #333;
 }
 
-.lesson-list h2 {
-  margin-bottom: 1rem;
-  color: #1a1a2e;
-}
-
-.lesson-list ul {
-  list-style: none;
-  padding: 0;
-}
+ .lesson-list h2 {
+   margin-bottom: 1rem;
+   color: #1a1a2e;
+ }
+ 
+ .lesson-list header {
+   display: flex;
+   flex-direction: column;
+   gap: 0.75rem;
+   margin-bottom: 1rem;
+ }
+ 
+ .lesson-filter {
+   padding: 0.5rem 0.75rem;
+   border: 1px solid #ddd;
+   border-radius: 6px;
+   font-size: 0.9375rem;
+   width: 100%;
+   box-sizing: border-box;
+ }
+ 
+ .lesson-filter:focus {
+   outline: none;
+   border-color: #00d9a5;
+   box-shadow: 0 0 0 3px rgba(0, 217, 165, 0.15);
+ }
+ 
+ .lesson-list ul {
+   list-style: none;
+   padding: 0;
+ }
 
 .lesson-list li {
   margin-bottom: 0.5rem;
@@ -106,10 +128,47 @@ main {
   transition: all 0.2s;
 }
 
-.lesson-list button:hover {
-  border-color: #00d9a5;
-  box-shadow: 0 2px 8px rgba(0, 217, 165, 0.15);
-}
+ .lesson-list button:hover {
+   border-color: #00d9a5;
+   box-shadow: 0 2px 8px rgba(0, 217, 165, 0.15);
+ }
+ 
+ .lesson-list button.active {
+   border-color: #00d9a5;
+   background: #f0fdf9;
+   font-weight: 500;
+ }
+ 
+ .lesson-id {
+   display: inline-block;
+   background: #f0f0f0;
+   padding: 0.125rem 0.5rem;
+   border-radius: 4px;
+   font-size: 0.75rem;
+   font-family: monospace;
+   color: #666;
+   margin-right: 0.75rem;
+   white-space: nowrap;
+ }
+ 
+ .lesson-title {
+   flex: 1;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+ }
+ 
+ .no-results {
+   padding: 1rem;
+   text-align: center;
+   color: #999;
+   font-style: italic;
+ }
+ 
+ .lesson-list button {
+   display: flex;
+   align-items: center;
+ }
 
 .lesson-view {
   background: #fff;
