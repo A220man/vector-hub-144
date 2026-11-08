@@ -1,11 +1,30 @@
 {
   "schema_version": 1,
-  "current_feature": "continue-implementation",
+  "current_feature": "lesson-search-filter",
   "features": [
+    {
+      "id": "lesson-search-filter",
+      "title": "Add lesson search/filter in phase lesson list",
+      "status": "done",
+      "acceptance": [
+        "Filter input in lesson list filters by title and ID",
+        "Real-time filtering as user types",
+        "No results message when filter matches nothing",
+        "Active lesson highlighted in list",
+        "Frontend builds and lints without errors"
+      ],
+      "implementation": [
+        "frontend/src/App.jsx",
+        "frontend/src/App.css"
+      ],
+      "tests": [
+        "Manual verification: filter works, build passes, lint passes"
+      ]
+    },
     {
       "id": "continue-implementation",
       "title": "Continue implementation and resolve known failures",
-      "status": "in_progress",
+      "status": "planned",
       "acceptance": [
         "Run checks, fix failures, and implement the next planned feature"
       ],
