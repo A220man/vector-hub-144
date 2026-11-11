@@ -25,7 +25,7 @@ Tests: `Manual verification: filter works, build passes, lint passes`
 
 ### continue-implementation — Continue implementation and resolve known failures
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - Run checks, fix failures, and implement the next planned feature

@@ -1,8 +1,20 @@
 # Changelog
 
-## 1.3.0 — work-in-progress checkpoint
+## 1.4.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
+
+## 1.3.0 — work-in-progress checkpoint
+
+### Added
+
+- Lesson search/filter in phase lesson list (filters by title and ID, real-time, no-results message, active highlight)
+
+### Changed
+
+- Frontend build and lint pass without errors
+
+ Partial code published for continued development. Known issues: STATUS.md.
 
 ## 1.2.0 — work-in-progress checkpoint
 
