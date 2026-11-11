@@ -24,7 +24,7 @@
     {
       "id": "continue-implementation",
       "title": "Continue implementation and resolve known failures",
-      "status": "planned",
+      "status": "in_progress",
       "acceptance": [
         "Run checks, fix failures, and implement the next planned feature"
       ],

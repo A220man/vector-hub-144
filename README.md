@@ -41,7 +41,7 @@ npm run dev
 - Inline correction display: toggle between original (strikethrough) + corrected, or clean corrected version
 - Corrections panel showing field-level diffs with explanatory notes
 - Phase sidebar navigation with lesson lists
-
+- Lesson search/filter in phase lesson list (filters by title and ID, real-time, no-results message, active highlight)
 ## Data Source
 
 Lesson corrections based on [rohitg00/ai-engineering-from-scratch#585](https://github.com/rohitg00/ai-engineering-from-scratch/issues/585) — factual/self-contradiction errors in English docs across phases 00–19.
