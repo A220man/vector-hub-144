@@ -1,5 +1,7 @@
 # vector-hub-144 — Ryan Vo
 
+Current version: `1.5.0`.
+
 AI Engineering documentation platform with lesson corrections from upstream issue #585.
 
 > Work in progress. This checkpoint may be incomplete or fail tests. See PLAN.md and STATUS.md before use.
