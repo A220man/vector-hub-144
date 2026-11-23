@@ -40,7 +40,7 @@ function LessonList({ phase, onSelectLesson, selectedLesson }) {
           type="text"
           placeholder="Filter lessons..."
           value={filter}
-          onChange={e => setFilter(e.target.value)}
+          onChange={e => setFilter(e.target.value.trim())}
           className="lesson-filter"
         />
       </header>
