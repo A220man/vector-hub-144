@@ -43,6 +43,16 @@ function LessonList({ phase, onSelectLesson, selectedLesson }) {
           onChange={e => setFilter(e.target.value.trim())}
           className="lesson-filter"
         />
+        {filter && (
+          <button
+            type="button"
+            className="lesson-filter-clear"
+            onClick={() => setFilter('')}
+            aria-label="Clear filter"
+          >
+            ×
+          </button>
+        )}
       </header>
       <ul>
         {filteredLessons.map(lesson => (

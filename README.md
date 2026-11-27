@@ -1,6 +1,6 @@
 # vector-hub-144 — Ryan Vo
 
-Current version: `1.6.0`.
+Current version: `1.7.0`.
 
 AI Engineering documentation platform with lesson corrections from upstream issue #585.
 
