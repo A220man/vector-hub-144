@@ -337,3 +337,23 @@ main {
   color: #16a34a;
   font-weight: 500;
 }
+
+.lesson-filter-clear {
+  background: transparent;
+  border: none;
+  color: #666;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+  transition: color 0.2s;
+}
+
+.lesson-filter-clear:hover {
+  color: #00d9a5;
+}
+
+.lesson-filter-clear:focus {
+  outline: none;
+  color: #00d9a5;
+}
